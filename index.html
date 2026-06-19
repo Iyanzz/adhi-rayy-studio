@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iyanz Studio — Building Modern Websites That Convert Visitors Into Clients</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0F0F0F;
+  --card:#171717;
+  --panel:#1B1B1B;
+  --hair:#272727;
+  --text:#FFFFFF;
+  --text-dim:#B3B3B3;
+  --gold:#D4AF37;
+  --gold-soft:#9C8328;
+  --radius:4px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Manrope',sans-serif;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:500;letter-spacing:0.01em;}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:1160px;margin:0 auto;padding:0 28px;}
+@media (max-width:640px){.wrap{padding:0 22px;}}
+.label{
+  font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--gold);font-weight:600;
+}
+
+/* ---------------- Nav ---------------- */
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(15,15,15,0.88);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--hair);
+}
+nav{display:flex;align-items:center;justify-content:space-between;padding:24px 0;}
+.logo{
+  font-family:'Cormorant Garamond',serif;font-size:1.3rem;letter-spacing:0.04em;
+  display:flex;align-items:center;gap:8px;
+}
+.logo .dot{width:5px;height:5px;border-radius:50%;background:var(--gold);}
+.nav-links{display:flex;gap:38px;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim);}
+.nav-links a{transition:color .2s ease;}
+.nav-links a:hover{color:var(--gold);}
+.nav-cta{
+  border:1px solid var(--gold);color:var(--gold);
+  font-size:0.74rem;letter-spacing:0.1em;text-transform:uppercase;
+  padding:11px 20px;border-radius:var(--radius);transition:background .2s ease, color .2s ease;
+}
+.nav-cta:hover{background:var(--gold);color:#0F0F0F;}
+@media (max-width:840px){.nav-links{display:none;}}
+
+/* ---------------- Hero ---------------- */
+.hero{
+  position:relative;
+  padding:130px 0 110px;
+  border-bottom:1px solid var(--hair);
+  text-align:center;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);
+  width:680px;height:680px;border-radius:50%;
+  background:radial-gradient(circle, rgba(212,175,55,0.10) 0%, transparent 70%);
+  pointer-events:none;
+}
+.hero-inner{position:relative;z-index:2;max-width:760px;margin:0 auto;}
+.hero .label{display:inline-block;margin-bottom:26px;}
+.hero h1{
+  font-size:clamp(2.3rem,5.2vw,3.9rem);
+  line-height:1.15;
+  margin-bottom:26px;
+}
+.hero h1 .line2{display:block;color:var(--gold);font-style:italic;}
+.hero p.lead{
+  color:var(--text-dim);font-size:1.08rem;max-width:520px;margin:0 auto 44px;
+}
+.cta-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:15px 28px;border-radius:var(--radius);
+  font-size:0.82rem;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;
+  transition:transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+}
+.btn-gold{background:var(--gold);color:#0F0F0F;}
+.btn-gold:hover{transform:translateY(-2px);background:#E5C457;}
+.btn-outline{border:1px solid #3A3A3A;color:var(--text);}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+
+/* ---------------- Section shared ---------------- */
+section{padding:110px 0;}
+.section-head{text-align:center;max-width:600px;margin:0 auto 64px;}
+.section-head .label{display:block;margin-bottom:16px;}
+.section-head h2{font-size:clamp(1.9rem,3.4vw,2.6rem);}
+.section-head p{color:var(--text-dim);margin-top:16px;font-size:0.98rem;}
+.border-top{border-top:1px solid var(--hair);}
+.panel-bg{background:var(--panel);}
+
+/* ---------------- Projects ---------------- */
+.projects{display:flex;flex-direction:column;gap:0;}
+.project{
+  display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;
+  padding:64px 0;border-bottom:1px solid var(--hair);
+}
+.project:last-child{border-bottom:none;}
+.project:nth-child(even) .project-info{order:2;}
+.project:nth-child(even) .project-mock{order:1;}
+@media (max-width:880px){
+  .project{grid-template-columns:1fr;gap:34px;}
+  .project:nth-child(even) .project-info{order:1;}
+  .project:nth-child(even) .project-mock{order:2;}
+}
+.project-info .industry{
+  font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-dim);
+  margin-bottom:14px;
+}
+.project-info h3{font-size:1.9rem;margin-bottom:18px;display:flex;align-items:center;gap:12px;}
+.feat-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:30px;}
+.feat-list li{font-size:0.92rem;color:var(--text-dim);display:flex;align-items:center;gap:10px;}
+.feat-list li::before{content:'';width:6px;height:1px;background:var(--gold);flex-shrink:0;}
+.live-link{
+  display:inline-flex;align-items:center;gap:8px;font-size:0.78rem;letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--gold-soft);padding-bottom:6px;
+  transition:gap .2s ease;
+}
+.live-link:hover{gap:13px;}
+
+/* mockup browser frame */
+.project-mock{
+  background:var(--card);border:1px solid var(--hair);border-radius:8px;
+  overflow:hidden;
+  box-shadow:0 30px 60px -20px rgba(0,0,0,0.6);
+}
+.mock-bar{
+  display:flex;align-items:center;gap:6px;padding:12px 16px;border-bottom:1px solid var(--hair);
+}
+.mock-dot{width:8px;height:8px;border-radius:50%;background:#3A3A3A;}
+.mock-screen{
+  padding:34px 28px;min-height:230px;display:flex;flex-direction:column;gap:16px;
+  position:relative;
+}
+.mock-screen .mock-icon{
+  width:46px;height:46px;border-radius:50%;border:1px solid var(--gold-soft);
+  display:flex;align-items:center;justify-content:center;font-size:1.3rem;color:var(--gold);
+  margin-bottom:6px;
+}
+.mock-bar-chart{display:flex;align-items:flex-end;gap:6px;height:64px;margin-top:8px;}
+.mock-bar-chart i{flex:1;background:linear-gradient(180deg,var(--gold) 0%, rgba(212,175,55,0.15) 100%);border-radius:2px 2px 0 0;}
+.mock-row{height:8px;border-radius:2px;background:#262626;}
+.mock-row.short{width:55%;}
+.mock-row.med{width:80%;}
+.mock-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:6px;}
+.mock-grid div{height:38px;background:#222;border-radius:3px;}
+.mock-circle-row{display:flex;align-items:center;gap:14px;}
+.mock-avatar{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#3a3322);flex-shrink:0;}
+.mock-pill{
+  align-self:flex-start;font-size:0.65rem;letter-spacing:0.08em;text-transform:uppercase;
+  border:1px solid var(--gold-soft);color:var(--gold);padding:6px 14px;border-radius:20px;margin-top:auto;
+}
+
+/* ---------------- Reviews ---------------- */
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+@media (max-width:880px){.review-grid{grid-template-columns:1fr;}}
+.review-card{
+  background:var(--card);border:1px solid var(--hair);border-radius:6px;padding:34px 30px;
+}
+.stars{color:var(--gold);font-size:0.95rem;letter-spacing:2px;margin-bottom:18px;}
+.review-card p.quote{color:var(--text-dim);font-size:0.95rem;margin-bottom:24px;font-style:italic;}
+.review-card .name{font-size:0.85rem;letter-spacing:0.05em;text-transform:uppercase;color:var(--text);font-weight:600;}
+
+/* ---------------- Why ---------------- */
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--hair);border:1px solid var(--hair);}
+@media (max-width:880px){.why-grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:520px){.why-grid{grid-template-columns:1fr;}}
+.why-item{background:var(--bg);padding:42px 30px;text-align:center;}
+.why-item .num{color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:1.4rem;margin-bottom:18px;}
+.why-item h4{font-size:1.05rem;margin-bottom:10px;font-weight:600;font-family:'Manrope',sans-serif;}
+.why-item p{color:var(--text-dim);font-size:0.86rem;}
+
+/* ---------------- Contact ---------------- */
+.contact{text-align:center;padding:130px 0;position:relative;}
+.contact h2{font-size:clamp(2rem,4.4vw,3.1rem);margin-bottom:50px;max-width:600px;margin-left:auto;margin-right:auto;}
+.contact-grid{display:flex;justify-content:center;gap:70px;margin-bottom:50px;flex-wrap:wrap;}
+.contact-item .label{display:block;margin-bottom:10px;}
+.contact-item .value{font-family:'Cormorant Garamond',serif;font-size:1.5rem;}
+.contact-item a:hover{color:var(--gold);}
+
+footer{border-top:1px solid var(--hair);padding:34px 0;text-align:center;}
+footer p{color:var(--text-dim);font-size:0.78rem;letter-spacing:0.06em;}
+
+.float-wa{
+  position:fixed;bottom:26px;right:26px;z-index:60;
+  background:var(--gold);color:#0F0F0F;width:54px;height:54px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:1.4rem;
+  box-shadow:0 10px 30px rgba(212,175,55,0.3);
+  transition:transform .2s ease;
+}
+.float-wa:hover{transform:scale(1.08);}
+
+[data-reveal]{opacity:0;transform:translateY(18px);transition:opacity .7s ease, transform .7s ease;}
+[data-reveal].in{opacity:1;transform:translateY(0);}
+
+@media (prefers-reduced-motion: reduce){
+  *{transition-duration:0.01ms !important;}
+  [data-reveal]{opacity:1;transform:none;}
+}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="logo">Iyanz Studio<span class="dot"></span></div>
+    <div class="nav-links">
+      <a href="#projects">Projects</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#why">Why Me</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="nav-cta" href="https://wa.me/6285591626181" target="_blank" rel="noopener">Start a Project</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <span class="label">Iyanz Studio</span>
+    <h1>Building Modern Websites<span class="line2">That Convert Visitors Into Clients</span></h1>
+    <p class="lead">Website profesional untuk bisnis, personal brand, dan trading academy.</p>
+    <div class="cta-row">
+      <a class="btn btn-gold" href="#projects">View Portfolio</a>
+      <a class="btn btn-outline" href="https://wa.me/6285591626181" target="_blank" rel="noopener">Chat on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="border-top">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="label">Selected Projects</span>
+      <h2>Work Built to Stand Out</h2>
+      <p>Setiap proyek dirancang sesuai karakter bisnisnya — bukan template yang sama untuk semua orang.</p>
+    </div>
+
+    <div class="projects">
+
+      <div class="project" data-reveal>
+        <div class="project-info">
+          <div class="industry">Industry — Barbershop</div>
+          <h3>✂️ Precision Barbershop</h3>
+          <ul class="feat-list">
+            <li>Online Booking</li>
+            <li>Pricing Menu</li>
+            <li>Gallery</li>
+            <li>WhatsApp Integration</li>
+          </ul>
+          <a class="live-link" href="#contact">Live Preview →</a>
+        </div>
+        <div class="project-mock">
+          <div class="mock-bar"><span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-dot"></span></div>
+          <div class="mock-screen">
+            <div class="mock-icon">✂️</div>
+            <div class="mock-row med"></div>
+            <div class="mock-row short"></div>
+            <div class="mock-grid"><div></div><div></div><div></div></div>
+            <span class="mock-pill">Book Now</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project" data-reveal>
+        <div class="project-info">
+          <div class="industry">Industry — Cafe &amp; Restaurant</div>
+          <h3>☕ Arunika Coffee</h3>
+          <ul class="feat-list">
+            <li>Digital Menu</li>
+            <li>Reservation System</li>
+            <li>Event Promotion</li>
+            <li>Mobile Optimized</li>
+          </ul>
+          <a class="live-link" href="#contact">Live Preview →</a>
+        </div>
+        <div class="project-mock">
+          <div class="mock-bar"><span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-dot"></span></div>
+          <div class="mock-screen">
+            <div class="mock-icon">☕</div>
+            <div class="mock-row med"></div>
+            <div class="mock-row short"></div>
+            <div class="mock-grid"><div></div><div></div><div></div></div>
+            <span class="mock-pill">Reserve a Table</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project" data-reveal>
+        <div class="project-info">
+          <div class="industry">Industry — Education</div>
+          <h3>📈 Apex Trading Academy</h3>
+          <ul class="feat-list">
+            <li>Landing Page</li>
+            <li>Mentor Profile</li>
+            <li>Student Registration</li>
+            <li>Testimonials</li>
+          </ul>
+          <a class="live-link" href="#contact">Live Preview →</a>
+        </div>
+        <div class="project-mock">
+          <div class="mock-bar"><span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-dot"></span></div>
+          <div class="mock-screen">
+            <div class="mock-bar-chart">
+              <i style="height:30%"></i><i style="height:55%"></i><i style="height:40%"></i>
+              <i style="height:70%"></i><i style="height:50%"></i><i style="height:85%"></i>
+              <i style="height:60%"></i>
+            </div>
+            <div class="mock-circle-row">
+              <div class="mock-avatar"></div>
+              <div style="flex:1;display:flex;flex-direction:column;gap:8px;">
+                <div class="mock-row short"></div>
+                <div class="mock-row" style="width:35%;"></div>
+              </div>
+            </div>
+            <span class="mock-pill">Register Now</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project" data-reveal>
+        <div class="project-info">
+          <div class="industry">Industry — Personal Branding</div>
+          <h3>👤 Personal Portfolio</h3>
+          <ul class="feat-list">
+            <li>About Me</li>
+            <li>Experience</li>
+            <li>Project Showcase</li>
+            <li>Contact Form</li>
+          </ul>
+          <a class="live-link" href="#contact">Live Preview →</a>
+        </div>
+        <div class="project-mock">
+          <div class="mock-bar"><span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-dot"></span></div>
+          <div class="mock-screen">
+            <div class="mock-circle-row">
+              <div class="mock-avatar"></div>
+              <div style="flex:1;display:flex;flex-direction:column;gap:8px;">
+                <div class="mock-row short"></div>
+                <div class="mock-row" style="width:40%;"></div>
+              </div>
+            </div>
+            <div class="mock-grid"><div></div><div></div><div></div></div>
+            <span class="mock-pill">Get in Touch</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="reviews" class="border-top panel-bg">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="label">Client Reviews</span>
+      <h2>Trusted by Growing Businesses</h2>
+    </div>
+    <div class="review-grid">
+      <div class="review-card" data-reveal>
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Website terlihat profesional dan mudah digunakan. Komunikasi selama pengerjaan juga cepat."</p>
+        <div class="name">Hendra Gunawan</div>
+      </div>
+      <div class="review-card" data-reveal>
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Desain modern, responsif di HP, dan sesuai kebutuhan bisnis saya."</p>
+        <div class="name">Jason Amir</div>
+      </div>
+      <div class="review-card" data-reveal>
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Sangat membantu untuk meningkatkan kredibilitas bisnis secara online."</p>
+        <div class="name">Candra Herman</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="why" class="border-top">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="label">Why Work With Me</span>
+      <h2>A Process Built Around Trust</h2>
+    </div>
+    <div class="why-grid" data-reveal>
+      <div class="why-item">
+        <div class="num">I</div>
+        <h4>Modern Design</h4>
+        <p>Website yang bersih, premium, dan nyaman dilihat.</p>
+      </div>
+      <div class="why-item">
+        <div class="num">II</div>
+        <h4>Mobile First</h4>
+        <p>Optimal di HP, tablet, dan desktop.</p>
+      </div>
+      <div class="why-item">
+        <div class="num">III</div>
+        <h4>Fast Delivery</h4>
+        <p>Pengerjaan cepat dengan komunikasi yang jelas.</p>
+      </div>
+      <div class="why-item">
+        <div class="num">IV</div>
+        <h4>Direct Support</h4>
+        <p>Bisa langsung diskusi melalui WhatsApp.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="border-top panel-bg contact">
+  <div class="wrap">
+    <span class="label">Contact</span>
+    <h2 style="margin-top:20px;">Let's Build Something<br>Great Together</h2>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <span class="label">WhatsApp</span>
+        <a class="value" href="https://wa.me/6285591626181" target="_blank" rel="noopener">0855-9162-6181</a>
+      </div>
+      <div class="contact-item">
+        <span class="label">Email</span>
+        <a class="value" href="mailto:muchammadadiriyanto@gmail.com">muchammadadiriyanto@gmail.com</a>
+      </div>
+    </div>
+    <a class="btn btn-gold" href="https://wa.me/6285591626181" target="_blank" rel="noopener">Start a Project</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 IYANZ STUDIO — ALL RIGHTS RESERVED</p>
+</footer>
+
+<a class="float-wa" href="https://wa.me/6285591626181" target="_blank" rel="noopener" aria-label="Chat WhatsApp">💬</a>
+
+<script>
+  const items = document.querySelectorAll('[data-reveal]');
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); } });
+  },{threshold:0.15});
+  items.forEach(it=>obs.observe(it));
+</script>
+
+</body>
+</html>
